@@ -3,9 +3,9 @@
 Namaz vakitleri, Kur’an okuma ve dinleme, kıble, dualar, hadisler ve saatlik ayet widget’ını tek uygulamada bir araya getiren Türkçe Android uygulaması.
 
 <p align="center">
-  <a href="https://kuran-okuma-emre-2026.emrebalcan494.chatgpt.site"><strong>Canlı uygulamayı aç</strong></a>
+  <a href="https://islam-rehberi.emrebalcan494.chatgpt.site"><strong>Canlı uygulamayı aç</strong></a>
   &nbsp;•&nbsp;
-  <a href="https://kuran-okuma-emre-2026.emrebalcan494.chatgpt.site/downloads/kuran-okuma.apk"><strong>Android APK’yı indir</strong></a>
+  <a href="https://islam-rehberi.emrebalcan494.chatgpt.site/downloads/kuran-okuma.apk"><strong>Android APK’yı indir</strong></a>
 </p>
 
 <p align="center">
@@ -46,7 +46,7 @@ Namaz vakitleri, Kur’an okuma ve dinleme, kıble, dualar, hadisler ve saatlik 
 
 ## Kurulum
 
-1. [APK dosyasını indirin](https://kuran-okuma-emre-2026.emrebalcan494.chatgpt.site/downloads/kuran-okuma.apk).
+1. [APK dosyasını indirin](https://islam-rehberi.emrebalcan494.chatgpt.site/downloads/kuran-okuma.apk).
 2. Android cihazınız indirme için izin isterse tarayıcınıza “Bilinmeyen uygulama yükleme” izni verin.
 3. İndirilen APK’yı açarak kurulumu tamamlayın.
 
@@ -76,4 +76,6 @@ Konum bilgisi yalnızca namaz vakitlerini almak ve kıble yönünü hesaplamak a
 ## Not
 
 İslam Rehberi bağımsız bir projedir ve Diyanet İşleri Başkanlığının resmî uygulaması değildir. Dinî metinlerde kaynak ve atıf bilgileri uygulama içinde gösterilir.
+
+
 
