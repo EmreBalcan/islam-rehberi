@@ -23,6 +23,9 @@ import org.json.JSONObject;
 
 public class HourlyVerseWidgetProvider extends AppWidgetProvider {
     private static final String ACTION_HOURLY = "app.kuranokuma.mobile.HOURLY_VERSE";
+    private static final String[] SURAH_NAMES = {
+        "Fâtiha","Bakara","Âl-i İmrân","Nisâ","Mâide","En‘âm","A‘râf","Enfâl","Tevbe","Yûnus","Hûd","Yûsuf","Ra‘d","İbrâhîm","Hicr","Nahl","İsrâ","Kehf","Meryem","Tâhâ","Enbiyâ","Hac","Mü’minûn","Nûr","Furkân","Şuarâ","Neml","Kasas","Ankebût","Rûm","Lokmân","Secde","Ahzâb","Sebe’","Fâtır","Yâsîn","Sâffât","Sâd","Zümer","Mü’min","Fussilet","Şûrâ","Zuhruf","Duhân","Câsiye","Ahkâf","Muhammed","Fetih","Hucurât","Kâf","Zâriyât","Tûr","Necm","Kamer","Rahmân","Vâkıa","Hadîd","Mücâdele","Haşr","Mümtehine","Saf","Cum‘a","Münâfikûn","Tegâbün","Talâk","Tahrîm","Mülk","Kalem","Hâkka","Meâric","Nûh","Cin","Müzzemmil","Müddessir","Kıyâme","İnsân","Mürselât","Nebe’","Nâziât","Abese","Tekvîr","İnfitâr","Mutaffifîn","İnşikâk","Bürûc","Târık","A‘lâ","Gâşiye","Fecr","Beled","Şems","Leyl","Duhâ","İnşirâh","Tîn","Alak","Kadr","Beyyine","Zilzâl","Âdiyât","Kâria","Tekâsür","Asr","Hümeze","Fîl","Kureyş","Mâûn","Kevser","Kâfirûn","Nasr","Tebbet","İhlâs","Felak","Nâs"
+    };
     private static final String[] RESCHEDULE_ACTIONS = {
         Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_MY_PACKAGE_REPLACED,
         Intent.ACTION_TIME_CHANGED, Intent.ACTION_TIMEZONE_CHANGED
@@ -121,7 +124,9 @@ public class HourlyVerseWidgetProvider extends AppWidgetProvider {
                 JSONArray data = new JSONObject(body.toString()).getJSONArray("data");
                 JSONObject arabicData = data.getJSONObject(0), turkishData = data.getJSONObject(1);
                 JSONObject surah = arabicData.getJSONObject("surah");
-                String reference = surah.getString("englishName") + " / " + surah.getString("name") + " · " + arabicData.getInt("numberInSurah") + ". ayet";
+                int surahNumber = surah.getInt("number");
+                String surahName = surahNumber >= 1 && surahNumber <= SURAH_NAMES.length ? SURAH_NAMES[surahNumber - 1] : "Sûre " + surahNumber;
+                String reference = surahName + " Suresi · " + arabicData.getInt("numberInSurah") + ". ayet";
                 applyVerse(context, String.valueOf(hour), number, reference, arabicData.getString("text"), turkishData.getString("text"));
                 return true;
             }
@@ -142,3 +147,4 @@ public class HourlyVerseWidgetProvider extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.widget_root, pending);
     }
 }
+
