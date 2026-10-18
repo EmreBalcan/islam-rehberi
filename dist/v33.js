@@ -1,7 +1,7 @@
 (function(){
 const dayIndex=n=>Math.floor(new Date().setHours(0,0,0,0)/86400000)%n;
 let hadisler=[];
-const hadisPromise=fetch('/riyazus.json').then(response=>response.ok?response.json():[]).then(items=>hadisler=Array.isArray(items)?items:[]).catch(()=>[]);
+const hadisPromise=fetch('/riyazus.json?v=40').then(response=>response.ok?response.json():[]).then(items=>hadisler=Array.isArray(items)?items:[]).catch(()=>[]);
 function showDailyHadith(){
  const panel=document.getElementById('daily-content');
  if(!panel)return;
