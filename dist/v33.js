@@ -1,12 +1,19 @@
 (function(){
-const dayIndex=n=>Math.floor(new Date().setHours(0,0,0,0)/86400000)%n;
+const dayNumber=()=>Math.floor(new Date().setHours(0,0,0,0)/86400000);
+function dailyHadith(source){
+ const topics=new Map();
+ source.forEach(item=>{const topic=item.topic||item.category||'Hadis';if(!topics.has(topic))topics.set(topic,[]);topics.get(topic).push(item)});
+ const groups=[...topics.values()];if(!groups.length)return null;
+ const day=dayNumber(),group=groups[day%groups.length];
+ return group[Math.floor(day/groups.length)%group.length];
+}
 let hadisler=[];
 const hadisPromise=fetch('/riyazus.json?v=40').then(response=>response.ok?response.json():[]).then(items=>hadisler=Array.isArray(items)?items:[]).catch(()=>[]);
 function showDailyHadith(){
  const panel=document.getElementById('daily-content');
  if(!panel)return;
  const paint=()=>{
-  const source=hadisler.length?hadisler:(window.bigHadiths||[]),hadith=source[dayIndex(source.length)];
+  const source=hadisler.length?hadisler:(window.bigHadiths||[]),hadith=dailyHadith(source);
   if(!hadith)return;
   panel.replaceChildren();
   const label=document.createElement('b'),topic=document.createElement('h3'),text=document.createElement('p'),reference=document.createElement('p');
