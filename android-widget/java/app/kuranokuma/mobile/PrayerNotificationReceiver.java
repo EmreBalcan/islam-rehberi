@@ -5,6 +5,5 @@ import android.content.Context;
 import android.content.Intent;
 
 public class PrayerNotificationReceiver extends BroadcastReceiver {
- @Override public void onReceive(Context context,Intent intent){PrayerNotificationService.startSaved(context);}
+ @Override public void onReceive(Context context,Intent intent){PrayerAlarmScheduler.rescheduleSaved(context);PrayerNotificationService.startSaved(context);}
 }
-

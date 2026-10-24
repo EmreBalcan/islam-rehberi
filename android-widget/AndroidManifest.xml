@@ -44,6 +44,7 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".PrayerAlarmReceiver" android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -68,4 +69,3 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
 </manifest>
-
