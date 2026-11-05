@@ -2,7 +2,7 @@
 // APK/QR alanını ana sayfadan çekmeceye taşı.
 const download=document.querySelector('.download-panel');
 const drawer=document.querySelector('.app-drawer');
-if(drawer){const head=drawer.querySelector('.drawer-head strong');if(head){const img=document.createElement('img');img.src='/app-cover.png';img.alt='İslam Rehberi';img.className='app-cover-mini';head.prepend(img);}}
+if(drawer){const head=drawer.querySelector('.drawer-head strong');if(head){const img=document.createElement('img');img.src='./app-cover.png';img.alt='İslam Rehberi';img.className='app-cover-mini';head.prepend(img);}}
 if(download&&drawer){download.classList.add('drawer-download');drawer.append(download);}
 
 // Saatlik ayeti küçük, açılır kapanır bir kart yap.
