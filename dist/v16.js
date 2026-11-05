@@ -19,7 +19,7 @@ $('verses')?.addEventListener('click',event=>{const toggle=event.target.closest(
 
 // Kur’an Yolu tefsirlerini uygulama içinde göster.
 let tafsirPromise;
-function loadTafsir(){return tafsirPromise||(tafsirPromise=fetch('./tefsir.json').then(r=>{if(!r.ok)throw new Error('Tefsir verisi yüklenemedi');return r.json();}));}
+function loadTafsir(){return tafsirPromise||(tafsirPromise=fetch('/tefsir.json').then(r=>{if(!r.ok)throw new Error('Tefsir verisi yüklenemedi');return r.json();}));}
 $('verses')?.addEventListener('click',async event=>{const button=event.target.closest('[data-tafsir]');if(!button)return;event.preventDefault();event.stopImmediatePropagation();const box=button.nextElementSibling;if(!box)return;if(!box.hidden){box.hidden=true;button.textContent='Tefsiri göster';return;}box.hidden=false;button.textContent='Tefsiri gizle';box.innerHTML='<strong>Kur’an Yolu Tefsiri</strong><p>Tefsir hazırlanıyor…</p>';try{const data=await loadTafsir(),surah=data.find(x=>Number(x.sureID)===state.selected),ayah=Number(button.dataset.tafsir),entry=surah?.tefsirler?.find(x=>x.ayetler?.map(Number).includes(ayah));box.innerHTML=`<strong>Kur’an Yolu Tefsiri · ${surah?.sureAdi||''}</strong><div class="tafsir-text">${(entry?.tefsir||'Bu ayet için ayrı bir açıklama bulunamadı.').split('\n').map(p=>p.trim()?`<p>${p}</p>`:'').join('')}</div><small>Kaynak: Diyanet İşleri Başkanlığı, Kur’an Yolu Tefsiri</small>`;}catch(error){box.innerHTML=`<strong>Tefsir yüklenemedi</strong><p>${error.message}</p>`;}},true);
 
 // Çekmece kapatıldığında her zaman ana sayfayı göster.

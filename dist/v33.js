@@ -8,7 +8,7 @@ function dailyHadith(source){
  return group[Math.floor(day/groups.length)%group.length];
 }
 let hadisler=[];
-const hadisPromise=fetch('./riyazus.json?v=40').then(response=>response.ok?response.json():[]).then(items=>hadisler=Array.isArray(items)?items:[]).catch(()=>[]);
+const hadisPromise=fetch('/riyazus.json?v=40').then(response=>response.ok?response.json():[]).then(items=>hadisler=Array.isArray(items)?items:[]).catch(()=>[]);
 function showDailyHadith(){
  const panel=document.getElementById('daily-content');
  if(!panel)return;
